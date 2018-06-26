@@ -36,6 +36,25 @@ Please refer to ChainerRL's [official GitHub](https://github.com/chainer/chainer
 ### Integration with Marlo
 As described previously, ChainerRL interacts with Marlo seamlessly. Let us take the implementation of a PPO agent in Minecraft using ChainerRL and Marlo and break it down into simpler steps.
 
+First it is necessary to start up a Minecraft client on port 10000 such that Marlo can use it. This is very easy to do if you have followed the previous steps and have therefore installed a repacked version of Malmo, since it comes already packed with a Minecraft launcher. Simply navigate to your Malmo folder with your favorite CLI and then:
+```cmd
+cd Minecraft
+.\launchClient.bat
+```
+or
+```sh
+cd Minecraft
+.\launchClient.sh
+```
+If this is your first time running Malmo, please be patient as building the Gradle client takes a while. Don't worry if the console shows 95% completion as long as the game runs: the server is running and agents will work.
+
+In case you've installed Malmo as a PyPi wheel, you can use the following command:
+```cmd
+python3 -c 'import malmo.minecraftbootstrap; malmo.minecraftbootstrap.launch_minecraft()'
+```
+
+You are now ready to start putting together your ChainerRL PPO!
+
 #### Imports and variables
 Let us first import PPO, its subsidiary A3C, as well as other chainer and chainerRL-related classes. We will also import numpy and marlo as these will be used later.
 
