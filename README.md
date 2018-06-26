@@ -1,4 +1,4 @@
- ## --- This is a draft document ---
+## --- This is a draft document ---
 
 ## Introduction
 Marlo (short for Multi-Agent Reinforcement Learning in Malmo) is an artificial intelligence competition primarily aimed towards the goal of implementing reinforcement learning agents with a great degree of generality, capable of solving problems in pseudo-random, procedurally changing multi-agent environments within the world of the mediatic phenomenon game Minecraft.
@@ -17,11 +17,17 @@ Due to the framework's nature as an wrapper for Malmo, a few steps must be taken
     * Please ensure that all the redistributables that Malmo requires are installed correctly, and that the following entries appear as environment variables:
         * MALMO_XSD_PATH = Malmo_dir\Schemas folder
         * JAVA_HOME = jdk installation folder
-2. Clone Marlo repository from [this](#) GitHub repository's Master branch.
-3. Navigate to the folder where you have downloaded the repository and run the setup.py file: python setup.py install
+2. Clone Marlo repository from [this](https://github.com/spMohanty/marLo/tree/dev) GitHub repository's Master branch.
+3. Navigate to the folder where you have downloaded the repository and run the setup.py file: *python setup.py install*
     * This should install all the required packages for Marlo to function.
     * In some special circumstances, some packages might fail to install, prompting you to install them yourself. When this happens, the error message usually contains the name and link to the missing packages which you should install using PyPi.
     * Note: if an import error describing a missing "scoretable" class appears, please downgrade Gym to version 0.7.4 like such: *pip install -U gym==0.7.4*
+
+### Marlo installation with Malmo as PyPi wheel
+---Stub---
+
+### Marlo installation with self-compiled Malmo
+If you have taken the time to compile Malmo on your own, then chances are this step is unneeded. Simply clone Marlo from the [GitHub repository](https://github.com/spMohanty/marLo/tree/dev) and run the setup file via *python setup.py install*.
     
 ## Using our recommended framework, ChainerRL
 In their own words, Chainer "is a Python-based deep learning framework aiming at flexibility". It has a very powerful high-level API aimed at training deep learning networks and as such is very useful in a RL context. ChainerRL is a deep reinforcement learning library that implements various state-of-the-art deep reinforcement algorithms in Python using Chainer.
