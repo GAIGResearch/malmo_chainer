@@ -49,7 +49,7 @@ env.init(
     )
 
 obs = env.reset()
-env.render()
+env.render(mode="rgb_array")
 print('initial observation:', obs)
 
 action = env.action_space.sample()

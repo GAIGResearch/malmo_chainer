@@ -50,7 +50,7 @@ env.init(
     )
 
 obs = env.reset()
-env.render()
+env.render(mode="rgb_array")
 print('initial observation:', obs)
 
 action = env.action_space.sample()
@@ -89,12 +89,6 @@ explorer = explorers.ConstantEpsilonGreedy(
 			#final_exploration_steps,
 			#random_action_func=str(env.action_space.sample)
 		#)
-		
-# Draw the computational graph and save it in the output directory.
-chainerrl.misc.draw_computational_graph(
-	[q_func(np.zeros_like(obs_space.low, dtype=np.float32)[None])],
-	os.path.join(outdir, 'model')
-	)
 
 # Set up Adam optimizer
 opt = optimizers.Adam()
@@ -129,4 +123,10 @@ experiments.train_agent_with_evaluation(
 		eval_interval=eval_interval,
 		outdir=outdir, 
 		max_episode_len=timestep_limit
+	)
+	
+# Draw the computational graph and save it in the output directory.
+chainerrl.misc.draw_computational_graph(
+	[q_func(np.zeros_like(obs_space.low, dtype=np.float32)[None])],
+	os.path.join(outdir, 'model')
 	)
